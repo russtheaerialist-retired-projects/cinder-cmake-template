@@ -1,3 +1,6 @@
 [submodule "cmake-toolkit"]
 	path = cmake-toolkit
 	url = git://github.com/nickhutchinson/cmake-toolkit.git
+[submodule "blocks/Cinder-Kinect"]
+	path = blocks/Cinder-Kinect
+	url = git@github.com:cinder/Cinder-Kinect.git
