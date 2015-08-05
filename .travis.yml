@@ -1,0 +1,19 @@
+language: objective-c
+before_script:
+- brew update
+- brew install tbb ninja
+- brew unlink cmake
+- brew install cmake
+- mkdir build
+- cd build
+- cmake -G Ninja ..
+script: ninja
+deploy:
+  provider: releases
+  api_key:
+    secure: HhR0fC9Sts9WHLVEtFScAGURaJFatK8Oxi36Eed8zvjJdeaWlV1O5zwhOx6XTT9+/R33eW3iTtvj30stmDCtshRfsYbcWRIfOO65Uf4PORutU2rkutA0aPG+FN309SenJnPWV15x+UhZy4AhcI+3YVTHKRV6BbjA93StIcof2qozY9cJDQSrNO6yQxojlisHd13HQmmLGxpKdFUNl+4Ik4HrsuRJTECQoz4zDFYt+P1LUZHJrE7YP8aZHGlGggb+v6eLjtu35n682PAcNzY6L5mDoxpk0/hn1VU5YGeKybqCT/vhMeunXDeTwoM4F+t+rLaeo1XtTHqnI5AiqYkyFRK6mFrfL+atHHKZDPxOofoJwIR2Es3fXwmZFSodoDhrvKuIA1f87UciB22wi2uYwCV7R5zI8Pso3+LgXyzbL+J/uAb9MMAz41oKuLEK7KGiymBPnovNFnmdlDADU6QbuaA6EQr3eh6SBFlFcIIWgvd8kDDj7Clc5o1ictcENZ++rZesfq200d/vfUmUFjLTHcCuHGGDH2rYhU2xalfocToSR9v9+Oj+XRLnFind69y91+pRox2+aZY5U4Ic9JdiOncOmRDR8SQviR7kHpbqykGErZTK6Zg4U4Q7pvhsQ08L2xFGyayAIYoLZyTxfog3ojrGUAjoZZD2T4JlMfMUByQ=
+  file: bin/livingbox
+  skip_cleanup: true
+  on:
+    repo: stainlessio/living-box
+    tags: true
