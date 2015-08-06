@@ -2,7 +2,7 @@ This is a template project that gives you a quick setup for a Cinder app that us
 
 ## To Build
 2. install ninja and then cmake
-3. Clone or download and unzip Cinder so it has the same parent directory as this project
+3. Clone or download and unzip Cinder so that it resides in the support directory
 3. Rename the cinder download (or symlink, that's what I do) so that the directory is named cinder-latest
 3. run `./update.sh` which will generate the ninja files
 3. run `./build.sh` which will build the project
