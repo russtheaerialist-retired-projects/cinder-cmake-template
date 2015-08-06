@@ -1,13 +1,17 @@
 #!/bin/sh
-#!/bin/bash
+#
+# This script is used to generate the schemas necessary to run a cinder build on the travis-ci servers
+# In order to use this, you will need to check cinder into the support directory so that it's available on the travis-ci servers
+#
 
-/Applications/Xcode.app/Contents/MacOS/Xcode "celestial.xcodeproj" &
+XCODEPROJ=cinder-cmake-template.xcodeproj
+/Applications/Xcode.app/Contents/MacOS/Xcode "$XCODEPROJ" &
 XCODE_PID=$!
 
 # now we wait for xcode to build the workspace:
 WAIT_FOR_XCODE=0
 while test ${WAIT_FOR_XCODE} -lt 6; do
-    WAIT_FOR_XCODE=`find "celestial.xcodeproj" |wc -l`
+    WAIT_FOR_XCODE=`find "$XCODEPROJ" |wc -l`
     sleep 2
     COUNT=`ps -p ${XCODE_PID} |wc -l`
     if test ${COUNT} -lt 2; then 
