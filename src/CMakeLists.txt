@@ -1,10 +1,12 @@
-set(code_SRC
+set(SRC_FILES
     app.cpp
 )
 
-set(code_HEADERS
+set(HDR_FILES
     app.h
 )
+
+use_block_cinder_freenect(${PROJECT_NAME})
 
 message(STATUS "${Cinder_INCLUDE_DIR}")
 INCLUDE_DIRECTORIES(
@@ -19,13 +21,16 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 
 add_executable(${PROJECT_NAME}
     MACOSX_BUNDLE
-    ${code_SRC}
-    ${code_HEADERS}
+    ${SRC_FILES}
+    ${HDR_FILES}
 )
+
+set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 11)
 target_link_libraries(${PROJECT_NAME}
     ${OpenCV_LIBS}
     ${Cinder_LIBRARIES}
     ${EXTRA_LIBS}
+    ${STATIC_LIBS}
     Boost::Boost
 )
 

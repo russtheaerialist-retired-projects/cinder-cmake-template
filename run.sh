@@ -1,5 +1,1 @@
-if [ ! -x build-Ninja ]; then
-  . update.sh
-fi
-
-cd build-Ninja && ninja && ./bin/livingbox.app/Contents/MacOS/livingbox
+cd build-Ninja && ninja && ./bin/cinder-cmake-template.app/Contents/MacOS/cinder-cmake-template
